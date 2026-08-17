@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum DuckColor {
+  Red
+  Green
+  Yellow
+  Black
+}
+
+enum DuckSize {
+  XLarge
+  Large
+  Medium
+  Small
+  XSmall
+}
+
+model Duck {
+  id        Int       @id @default(autoincrement())
+  color     DuckColor
+  size      DuckSize
+  price     Decimal   @db.Decimal(10, 2)
+  quantity  Int
+  deleted   Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@index([deleted, quantity])
+  @@index([color, size, price, deleted])
+}
