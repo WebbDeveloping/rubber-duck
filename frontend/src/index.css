@@ -905,6 +905,10 @@ a.ops-text-btn {
   text-transform: uppercase;
 }
 
+.ops-row-sub {
+  display: none;
+}
+
 .ops-row-meta {
   margin: 0;
   font-size: 15px;
@@ -916,6 +920,11 @@ a.ops-text-btn {
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+}
+
+.ops-row-value {
+  display: inline-flex;
+  align-items: baseline;
 }
 
 .ops-row-actions {
@@ -4451,28 +4460,81 @@ a.ops-text-btn {
     width: 100%;
   }
 
+  .ops-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .ops-table-head {
     display: none;
   }
 
-  .ops-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px 16px;
+  .ops-table {
+    display: grid;
+    gap: 8px;
+    border-top: none;
   }
 
-  .ops-row-product,
+  .ops-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      'product actions'
+      'price qty';
+    gap: 0;
+    align-items: center;
+    padding: 16px;
+    background: #f4f8fa;
+    border-bottom: none;
+  }
+
+  .ops-row-product {
+    grid-area: product;
+  }
+
   .ops-row-actions {
-    grid-column: 1 / -1;
+    grid-area: actions;
+    align-self: start;
+    justify-self: end;
+  }
+
+  .ops-row-sub {
+    display: block;
+  }
+
+  .ops-row-meta[data-label='Id'],
+  .ops-row-meta[data-label='Size'] {
+    display: none;
+  }
+
+  .ops-row-meta[data-label='Price'] {
+    grid-area: price;
+  }
+
+  .ops-row-meta[data-label='Quantity'] {
+    grid-area: qty;
+    padding-left: 16px;
+  }
+
+  .ops-row-meta[data-label='Price'],
+  .ops-row-meta[data-label='Quantity'] {
+    display: grid;
+    gap: 4px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #e4e9ec;
   }
 
   .ops-row-meta::before {
     content: attr(data-label);
-    display: block;
-    margin-bottom: 4px;
     color: #667479;
     font-size: 11px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
+  }
+
+  .ops-icon-btn:hover,
+  .ops-icon-btn:focus-visible {
+    background: #fff;
   }
 
   .home-story {

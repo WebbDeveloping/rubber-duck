@@ -136,6 +136,9 @@ export function DuckListPage() {
                       </span>
                       <span className="ops-row-copy">
                         <strong>{duck.color}</strong>
+                        <span className="ops-row-sub">
+                          {sizeLabel(duck.size)} · #{duck.id}
+                        </span>
                       </span>
                     </div>
                     <p className="ops-row-meta" data-label="Size">
@@ -145,8 +148,10 @@ export function DuckListPage() {
                       {formatPrice(Number(duck.price))}
                     </p>
                     <p className={`ops-row-meta${low ? ' is-low' : ''}`} data-label="Quantity">
-                      {duck.quantity}
-                      {low && <span className="ops-low-tag">Low</span>}
+                      <span className="ops-row-value">
+                        {duck.quantity}
+                        {low && <span className="ops-low-tag">Low</span>}
+                      </span>
                     </p>
                     <div className="ops-row-actions">
                       <Link
