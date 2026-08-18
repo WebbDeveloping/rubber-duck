@@ -2,6 +2,7 @@
 node_modules
 dist
 coverage
+doc/
 .env
 .env.*
 !.env.example

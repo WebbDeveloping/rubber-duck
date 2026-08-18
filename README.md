@@ -2,18 +2,17 @@
 
 Warehouse + store API for rubber ducks. NestJS backend, Vite React frontend, MySQL + Prisma.
 
-See **[doc/00-overview.md](./doc/00-overview.md)** for modules and the build order.
-
 ## Local run
 
 ```bash
 docker compose up -d
-cd backend && cp .env.example .env && npx prisma generate && npx prisma migrate dev && npm run start:dev
+cd backend && cp .env.example .env && npx prisma generate && npx prisma migrate deploy && npm run start:dev
 cd frontend && cp .env.example .env && npm run dev
 ```
 
 - API: http://localhost:3000/health
-- UI: http://localhost:5173
+- Storefront: http://localhost:5173
+- Warehouse admin: http://localhost:5173/admin/inventory
 
 ## Hosting
 
