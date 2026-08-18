@@ -1193,6 +1193,19 @@ a.ops-text-btn {
   text-transform: uppercase;
 }
 
+.ops-field-hint.is-error {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--danger);
+}
+
+.ops-field-hint-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
 .ops-quote {
   background: #f4f8fa;
   padding: 28px 24px 32px;

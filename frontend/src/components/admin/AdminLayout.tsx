@@ -48,14 +48,9 @@ export function AdminLayout() {
 
         <div className="admin-sidebar-foot">
           <p className="ops-kicker">Storefront</p>
-          <Link to="/shop" className="admin-nav-link" onClick={() => setNavOpen(false)}>
-            <span className="text-slide">
-              <span data-label="View shop">View shop</span>
-            </span>
-          </Link>
           <Link to="/" className="admin-nav-link" onClick={() => setNavOpen(false)}>
             <span className="text-slide">
-              <span data-label="Home">Home</span>
+              <span data-label="View shop">View shop</span>
             </span>
           </Link>
         </div>

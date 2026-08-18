@@ -131,10 +131,15 @@ export function OrdersPage() {
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
             />
-            <span className="ops-field-hint">
-              {match
-                ? `${match.quantity} in stock · ${formatPrice(Number(match.price))} each`
-                : 'No matching duck in inventory'}
+            <span className={`ops-field-hint${match ? '' : ' is-error'}`}>
+              {match ? (
+                `${match.quantity} in stock · ${formatPrice(Number(match.price))} each`
+              ) : (
+                <>
+                  <WarningIcon />
+                  No matching duck in inventory
+                </>
+              )}
             </span>
           </label>
 
@@ -211,5 +216,26 @@ export function OrdersPage() {
         </aside>
       </div>
     </section>
+  );
+}
+
+function WarningIcon() {
+  return (
+    <svg className="ops-field-hint-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M12 4 3.8 19h16.4L12 4Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 10v4.5M12 17.2v.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 }
